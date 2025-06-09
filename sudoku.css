@@ -1,0 +1,255 @@
+body{
+    background-color: #bee1ee;
+   margin: 0;
+   padding: 0;
+}
+header{
+    background-image: url(https://wallpapercat.com/w/full/d/c/5/1512772-1920x1080-desktop-1080p-puzzle-game-wallpaper-photo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+}
+/* nvbar */
+.nav{
+  background-color: #09264a;
+   display: flex;
+   flex-direction: row;
+   padding: 1rem 4rem;
+   align-items: center; 
+}
+.logo{
+    margin-right: 2rem;
+}
+.nav-links, .nav-links a{
+ justify-content: center;
+ text-decoration: none;
+ align-items: center;
+ color: rgb(191, 206, 216);
+ display: flex;
+ font-size: 20px;
+ gap: 2rem;
+}
+.theme-toggle:hover,.nav-links a:hover{
+    color: #e93807;
+    padding: 0.5rem 1rem;  
+}
+/* Theme switcher toggle positioning */
+.theme-toggle-container{
+  position: absolute;
+  display: flex;
+  color: #ccc;
+}
+.checkbox {
+  display: none;
+  cursor: pointer;
+}
+html:has(#dark-toggle:checked) body{
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    padding-left: 5rem;
+    padding-top: 10rem;  
+    
+}
+.left h1{
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f7a64b, #fc1e56); /* red to blue */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.left .subtitle{
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.left .btn{
+    background-color: #f0f0f0;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 1rem;
+    text-decoration: none;
+    width: 150px;
+   text-align: center;
+}
+.left .btn:hover{
+   background-image: linear-gradient(to right , #31ca9a, #233b98);
+    color: rgb(255, 255, 255);
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.right img{
+    width: 250px;
+    height: 260px;
+    border-radius: 25px;
+    align-items: right;
+    box-shadow: black 0px 0px 10px;
+    opacity: .9;
+}
+hr {
+    width: 500px;
+}
+
+#errors {
+    color: rgb(15, 15, 15);
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 10px solid black;
+    padding: 0.5rem;
+    background-color: #baeef1;
+}
+
+.tile {
+    width: 48px; 
+    height: 48px;
+    border: 1px solid rgb(151, 148, 148);
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#digits {
+    width: 450px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.number {
+    width: 44px; 
+    height: 44px;
+    border: 1px solid black;
+    margin: 2px;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-selected {
+    background-color: rgb(242, 232, 232);
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.tile-start {
+    background-color: whitesmoke;
+}
+
+.horizontal-line {
+    border-bottom: 2px solid black;
+}
+
+.vertical-line {
+    border-right: 2px solid black;
+}
+.guide {
+    padding:  2rem 8rem 2rem 8rem;
+    justify-content: center;
+    align-items: center;
+   
+}
+.guide h2 {
+    font-size: 2rem;
+    color: #3c3b3b;
+    margin-bottom: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.guide-header p, .guide-content p{
+  font-family: cursive;
+   font-size: 1rem; 
+}
+.guide .box{
+    background-color: rgba(255, 248, 220, 0.9);
+    padding: 5px;
+    border-radius: 10px;
+    line-height: 1.5;
+
+}
+
+.footer {
+    background-image: linear-gradient(to bottom, rgb(59, 182, 223), rgba(6, 12, 53, 0.8));
+    color: #f8f3f3;
+    padding: 1rem 8rem 1rem 8rem;
+    position: relative;
+    bottom: 0;
+}
+.gap{
+   width: 100%;
+}
+.footer a{
+    color: white;
+    text-decoration: none;
+}
+
+/* Modal */
+.modal-toggle {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(254, 252, 252, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: #111;
+  color: rgb(30, 234, 217);
+  padding: 2rem ;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal .close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #e81414;
+}
+
+.modal-toggle:checked + .modal {
+  display: flex; 
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudokIQ</title>
+    <link rel="stylesheet" href="sudoku.css">
+    <link rel="icon" type="image/png" href="https://static-00.iconduck.com/assets.00/sudoku-icon-512x512-qnhiasa3.png">
+     <script src="script.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+</head>
+<body>
+      <div class="nav">
+        <div class="logo"><img src="https://static-00.iconduck.com/assets.00/sudoku-icon-512x512-qnhiasa3.png" alt="logo" height="50px" width="50px">
+       </div>
+       <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#play">How to play</a>      
+          <div class=".theme-toggle-container">
+           <input type="checkbox" id="dark-toggle" class="checkbox">
+           <label class="theme-toggle" for="dark-toggle">Light/Dark</label>
+          </div>
+        </div>
+     </div>
+    <header id="home">
+      <div class="left">
+      <h1>SudokIQ</h1>
+      <p class="subtitle">Sharpen your mind, master the grid, and challenge yourself with endless Sudoku puzzles designed to test logic, focus, and fun.</p>
+     <a href="#sudoku-board" class="btn">Play now!</a>
+     </div>
+     <div class="right"><img src="https://st2.depositphotos.com/1001599/50782/v/450/depositphotos_507821380-stock-illustration-do-a-crossword-and-sudoku.jpg" alt=""></div>
+    </header>
+    <main id="sudoku-board">
+     <div>
+        <div id="stats">
+        Difficulty: <span id="difficulty-label">Easy</span> |
+        Errors: <span id="errors">0</span> |
+        Time: <span id="timer">00:00</span> |
+        Fastest: <span id="fastest">--:--</span> |
+        Completed: <span id="completed">0</span>
+        </div>
+
+        <div>
+        <select id="difficulty-select">
+            <option value="easy" selected>Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
+        </select>
+        <button onclick="newGame()">New Game</button>
+        </div>
+
+       <div id="digits"></div>
+       <div id="board"></div>
+
+       <div id="controls">
+          <button onclick="giveHint()">Hint</button>
+          <button onclick="resetGame()">Reset</button>
+          <button onclick="showSolution()">Solution</button>
+       </div>
+    </div>
+   
+    
+    <div class="modal">
+      <div class="modal-content">
+        <label for="madal1" class="close">×</label>
+        <h2>SudokIQ</h2>
+      </div>
+    </div>
+  
+    </main>
+
+    <section id="play" class="guide">
+     <div class="guide-header">
+          <h2>How to play Sudoku</h2>
+          <p>Sudoku is a logic-based number placement puzzle. The objective is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.</p>
+          <p>The goal of Sudoku is to fill in a 9×9 grid with digits so that each column, row, and 3×3 section contain the numbers between 1 to 9. At the beginning of the game, the 9×9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Don’t forget, a move is incorrect if:
+          </p>
+          <div class="box">
+               <ul>
+                    <li>Any row contains more than one of the same number from 1 to 9</li>
+                    <li>Any column contains more than one of the same number from 1 to 9</li>
+                    <li>Any 3×3 grid contains more than one of the same number from 1 to 9</li>
+               </ul>
+          </div>
+     </div>
+     <div class="guide-content" id="Tips">
+         <h2>Sudoku Tips</h2> 
+          <p>Sudoku is a fun puzzle game once you get the hang of it. At the same time, learning to play Sudoku can be a bit intimidating for beginners. So, if you are a complete beginner, here are a few Sudoku tips that you can use to improve your Sudoku skills.</p>
+          <div class="box">
+             <ul>
+               <li>Tip 1: Look for rows, columns of 3×3 sections that contain 5 or more numbers. Work through the remaining empty cells, trying the numbers that have not been used. In many cases, you will find numbers that can only be placed in one position considering the other numbers that are already in its row, column, and 3×3 grid.</li>
+
+               <li>Tip 2: Break the grid up visually into 3 columns and 3 rows. Each large column will have 3, 3×3 grids and each row will have 3, 3×3 grids. Now, look for columns or grids that have 2 of the same number. Logically, there must be a 3rd copy of the same number in the only remaining 9-cell section. Look at each of the remaining 9 positions and see if you can find the location of the missing number.</li>
+             </ul>
+          </div>
+     </div>
+    </section>
+    <footer class="footer">
+     <h2>SudokIQ</h2>
+     <div>
+          <a href="#home">Home</a>
+          <a href="#Tips">Tips</a>
+     </div>
+     <hr class="gap">
+      <p>&copy;2025 SudokIQ. All rights reserved.</p>
+     
+    </footer>
+   
+</body>
+</html>
