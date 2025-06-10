@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="sudoku.css">
     <link rel="icon" type="image/png" href="https://static-00.iconduck.com/assets.00/sudoku-icon-512x512-qnhiasa3.png">
      <script src="script.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
      
 </head>
 <body>
@@ -18,7 +18,7 @@
           <a href="#home">Home</a>
           <a href="#play">How to play</a>      
           <div class=".theme-toggle-container">
-           <input type="checkbox" id="dark-toggle" class="checkbox">
+           <input type="checkbox" id="dark-toggle" class="checkbox" onclick="dark()">
            <label class="theme-toggle" for="dark-toggle">Light/Dark</label>
           </div>
         </div>
@@ -29,46 +29,43 @@
       <p class="subtitle">Sharpen your mind, master the grid, and challenge yourself with endless Sudoku puzzles designed to test logic, focus, and fun.</p>
      <a href="#sudoku-board" class="btn">Play now!</a>
      </div>
-     <div class="right"><img src="https://st2.depositphotos.com/1001599/50782/v/450/depositphotos_507821380-stock-illustration-do-a-crossword-and-sudoku.jpg" alt=""></div>
+    
     </header>
     <main id="sudoku-board">
-     <div>
-        <div id="stats">
+     <div class="container">
+        <div id="stats" class="stats">
         Difficulty: <span id="difficulty-label">Easy</span> |
-        Errors: <span id="errors">0</span> |
-        Time: <span id="timer">00:00</span> |
-        Fastest: <span id="fastest">--:--</span> |
-        Completed: <span id="completed">0</span>
+        Errors: <span id="errors">0 </span> |
+        Time: <span id="timer">00:00 </span> |
+        Fastest: <span id="fastest">--:-- </span> |
+          Solved: <span id="completed">0</span>
         </div>
-
-        <div>
+    
+       <div id="board"></div> 
+       <div id="digits"></div>
+       
+       <div class="controls">
+        <div class="mode">
+        <label for="">Choose Mode:</label>
         <select id="difficulty-select">
             <option value="easy" selected>Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
             <option value="expert">Expert</option>
         </select>
-        <button onclick="newGame()">New Game</button>
         </div>
-
-       <div id="digits"></div>
-       <div id="board"></div>
+        <button onclick="giveHint()" class="hint"> <i class="fas fa-lightbulb"></i></button>
+        <button onclick="resetGame()" class="reset"> <i class="fas fa-redo"></i></button>
+        </div>
+       <div class="controls"><button onclick="newGame()" class="start">New Game</button></div>
 
        <div id="controls">
-          <button onclick="giveHint()">Hint</button>
-          <button onclick="resetGame()">Reset</button>
-          <button onclick="showSolution()">Solution</button>
+          <button onclick="showSolution()" class="solve">Solve</button>
+          <button onclick="checkSolution()" class="check">Check Solution</button>
+          <button onclick="resetStats()" class="all">Reset Stats</button>
+
        </div>
     </div>
-   
-    
-    <div class="modal">
-      <div class="modal-content">
-        <label for="madal1" class="close">×</label>
-        <h2>SudokIQ</h2>
-      </div>
-    </div>
-  
     </main>
 
     <section id="play" class="guide">
@@ -82,6 +79,7 @@
                     <li>Any row contains more than one of the same number from 1 to 9</li>
                     <li>Any column contains more than one of the same number from 1 to 9</li>
                     <li>Any 3×3 grid contains more than one of the same number from 1 to 9</li>
+                    <li>In SudokIQ, You have to select a number which you want to fill in the gap. </li>
                </ul>
           </div>
      </div>
@@ -98,10 +96,17 @@
      </div>
     </section>
     <footer class="footer">
-     <h2>SudokIQ</h2>
-     <div>
+
+     <h1>SudokIQ</h1>
+    
+     <div class="foot-content">
           <a href="#home">Home</a>
           <a href="#Tips">Tips</a>
+     </div>
+     <div class="social">
+          <a href="https://github.com/SwarupPal2006" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/coding_with_swarup?igsh=MTU3ejBvN3VwZWdneA==" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/swarup-pal-40aaa2331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
      </div>
      <hr class="gap">
       <p>&copy;2025 SudokIQ. All rights reserved.</p>
