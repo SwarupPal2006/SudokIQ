@@ -1,10 +1,10 @@
 body{
-    background-color: #bee1ee;
-   margin: 0;
-   padding: 0;
+    background-color: #6ab0edad;
+    margin: 0;
+    padding: 0;
 }
 header{
-    background-image: url(https://wallpapercat.com/w/full/d/c/5/1512772-1920x1080-desktop-1080p-puzzle-game-wallpaper-photo.jpg);
+    background-image: url(https://www.pogo.com/static/v2/media/src/assets/games/pogodailysudoku_h5/spotlightGame__1O2VC.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: rgb(255, 255, 255);
@@ -15,7 +15,7 @@ header{
 }
 /* nvbar */
 .nav{
-  background-color: #09264a;
+   background-color: #070d39;
    display: flex;
    flex-direction: row;
    padding: 1rem 4rem;
@@ -32,10 +32,13 @@ header{
  display: flex;
  font-size: 20px;
  gap: 2rem;
+
 }
 .theme-toggle:hover,.nav-links a:hover{
-    color: #e93807;
-    padding: 0.5rem 1rem;  
+    color: #0fcc8d;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;  
+    background-color: #4e5268a3;
 }
 /* Theme switcher toggle positioning */
 .theme-toggle-container{
@@ -47,9 +50,28 @@ header{
   display: none;
   cursor: pointer;
 }
-html:has(#dark-toggle:checked) body{
+html:has(#dark-toggle:checked) body {
   background-color: #121212;
   color: #e0e0e0;
+}
+html:has(#dark-toggle:checked) .container,
+html:has(#dark-toggle:checked) .box{
+  background-color: #201f1fad;
+}
+html:has(#dark-toggle:checked) #board {
+  background-color: #d2dff1ad;
+}
+html:has(#dark-toggle:checked) .stats {
+  background-color: #3c3c3c;
+}
+html:has(#dark-toggle:checked) .tile,
+html:has(#dark-toggle:checked) .number {
+  color: #5f0d0d;
+  border: #020112 1.5px solid;
+}
+html:has(#dark-toggle:checked) .number-selected {
+  background-color: #ebf3ee;
+  border: 3px solid #9bab07;
 }
 
 .left{
@@ -63,8 +85,8 @@ html:has(#dark-toggle:checked) body{
 .left h1{
     font-size: 3rem;
     margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #f7a64b, #fc1e56); /* red to blue */
+    padding: 0px;
+    background: linear-gradient(to right, #f7a64b, #ef351c); /* red to blue */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -92,28 +114,22 @@ html:has(#dark-toggle:checked) body{
    background-image: linear-gradient(to right , #31ca9a, #233b98);
     color: rgb(255, 255, 255);
 }
-.right{
+/* ----------------main------------------- */
+#sudoku-board {
+   justify-content: center;
+    align-items: center;
+    padding:  2rem 8rem 0 8rem;
+    
+}
+.container{
+    border-radius: 10px;
+    background-color: rgb(231, 246, 239);
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-.right img{
-    width: 250px;
-    height: 260px;
-    border-radius: 25px;
-    align-items: right;
-    box-shadow: black 0px 0px 10px;
-    opacity: .9;
-}
-hr {
-    width: 500px;
-}
-
-#errors {
-    color: rgb(15, 15, 15);
+  
 }
 
 #board {
@@ -122,11 +138,13 @@ hr {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    border: 10px solid black;
+    border: 7px solid black;
     padding: 0.5rem;
-    background-color: #baeef1;
+    margin: 5px auto;
+    background-color: #67e0c667;
+    box-shadow: #1c5be2 0px 0px 10px;
+    border-radius: 5px;
 }
-
 .tile {
     width: 48px; 
     height: 48px;
@@ -151,8 +169,11 @@ hr {
 .number {
     width: 44px; 
     height: 44px;
-    border: 1px solid black;
+    border: 1px solid rgb(184, 182, 182);
     margin: 2px;
+    background-color: #8bddea;
+    border-radius: 10px;
+    cursor: pointer;
 
     /* Text */
     font-size: 20px;
@@ -163,8 +184,8 @@ hr {
 }
 
 .number-selected {
-    background-color: rgb(242, 232, 232);
-    border: 2px solid rgb(255, 0, 0);
+    background-color: rgba(25, 201, 177, 0.747);
+    border: 3px solid rgb(48, 84, 229);
 }
 
 .tile-start {
@@ -178,6 +199,82 @@ hr {
 .vertical-line {
     border-right: 2px solid black;
 }
+ 
+.correct { background-color: lightgreen !important; }
+.incorrect { background-color: rgba(247, 138, 138, 0.916) !important; }
+.highlight { transition: background-color 0.3s; }
+.stats{
+    display: flex;
+    background-color: rgb(189, 225, 251);
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    margin: 0.5rem auto;
+    font-size: 18px;
+    border-radius: 8px;
+    width: 450px;
+}
+#controls, .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    width: 450px;
+    gap: 1rem;
+    
+}
+ .solve, .check, .all {
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    
+}
+.solve{ background-color: #18dc50;}
+.check{background-color: #f6e654;}
+.all{background-color: #f13d3d;}
+
+.mode{
+    background-color: #8cf1dd;
+    color: black;
+    border-radius: 5px;
+    padding: 0.5rem;  
+    font-size: 22px;
+
+}
+#difficulty-select{
+    background-color: #dbf2ff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.start{
+    background-color: #115bd9;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 17px;
+    cursor: pointer;
+    border: none;
+   width: 100%;
+}
+.start:hover{
+    background-color: #0f07ab;
+    box-shadow: #115bd9 0px 0px 10px;
+}
+.hint, .reset{
+    background-color: #1ce2b4;
+    color: rgb(15, 17, 17);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 22px;
+    cursor: pointer;
+    border: none;
+}
+ 
+
+/* ---------------guideing section-------------- */
 .guide {
     padding:  2rem 8rem 2rem 8rem;
     justify-content: center;
@@ -186,7 +283,6 @@ hr {
 }
 .guide h2 {
     font-size: 2rem;
-    color: #3c3b3b;
     margin-bottom: 1rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -195,15 +291,14 @@ hr {
    font-size: 1rem; 
 }
 .guide .box{
-    background-color: rgba(255, 248, 220, 0.9);
+    background-color: rgb(208, 243, 227);
     padding: 5px;
     border-radius: 10px;
     line-height: 1.5;
-
 }
 
 .footer {
-    background-image: linear-gradient(to bottom, rgb(59, 182, 223), rgba(6, 12, 53, 0.8));
+   background-color: #070d39;
     color: #f8f3f3;
     padding: 1rem 8rem 1rem 8rem;
     position: relative;
@@ -216,40 +311,94 @@ hr {
     color: white;
     text-decoration: none;
 }
-
-/* Modal */
-.modal-toggle {
-  display: none;
+.foot-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.foot-content a:hover{
+    color: #0f96cc;
+    text-decoration: underline;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin : 2rem;
+    font-size: 30px;
+}
+.social a:hover{
+    color: rgb(26, 146, 190);
+    text-decoration: none;
 }
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(254, 252, 252, 0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal-content {
-  background-color: #111;
-  color: rgb(30, 234, 217);
-  padding: 2rem ;
-  max-width: 500px;
-  border-radius: 8px;
-  position: relative;
-}
-
-.modal .close {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #e81414;
-}
-
-.modal-toggle:checked + .modal {
-  display: flex; 
+/* ----responsive---- */
+@media(max-width: 768px) {
+    header{
+        width: 100%;
+        display: flex;
+        
+    }
+    .left{
+        padding-left: 2rem;
+        padding-top: 5rem;
+        width: 100%;
+    }
+    .nav{
+        position:fixed;
+        padding: 1rem;
+        width: 100%;
+    }
+    .nav-links{
+        gap: 3rem;
+    }
+    #sudoku-board {
+        padding: 2rem 2rem 0 2rem;
+        width: 100%;
+        display: flex;
+    }
+    #board {
+        width: 360px;
+        height: 360px;
+        padding: 0.5rem;   
+    }
+    .tile {
+        width: 38px; 
+        height: 38px;
+        font-size: 16px;
+    }
+    #digits {
+        width: 100%;
+        height: 40px;
+        align-items: center;  
+        justify-content: center;
+    }
+    .number {
+        width: 34px; 
+        height: 34px;
+        font-size: 16px;}
+     .stats, #controls, .controls {
+        width: 100%;
+    }
+    .guide{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem;
+      }
+    .box,.container{
+        width: 100%;
+        padding: 1rem;
+    }
+    .footer {
+        padding: 1rem;
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+       
+    }  
 }
