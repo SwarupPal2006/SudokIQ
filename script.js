@@ -1,3 +1,4 @@
+
 /***************** GLOBAL STATE *******************/
 let numSelected = null;
 let errors = 0;
@@ -233,7 +234,7 @@ function giveHint() {
     const [r, c] = empties[Math.floor(Math.random() * empties.length)];
     const tile = document.getElementById(`${r}-${c}`);
     tile.innerText = solution[r][c];
-    tile.style.color = 'lightgreen';
+    tile.style.color = 'rgba(21, 28, 221, 0.9)';
     tile.classList.add('success');
     filledCount++;
     board[r] = board[r].substring(0, c) + solution[r][c] + board[r].substring(c + 1);
@@ -248,12 +249,42 @@ function resetGame() {
     startTimer();
 }
 
+function checkSolution() {
+        let correct = true;
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                let tile = document.getElementById(`${r}-${c}`);
+                tile.classList.remove("correct", "incorrect");
+                if (!tile.classList.contains("tile-start")) {
+                    if (tile.innerText === solution[r][c]) {
+                        tile.classList.add("correct");
+                    } else {
+                        tile.classList.add("incorrect");
+                        correct = false;
+                    }
+                }
+            }
+        }
+    
+
+     if (correct) {
+            let difficulty = document.getElementById("difficulty").value;
+            let completions = localStorage.getItem(`completed-${difficulty}`) || 0;
+            localStorage.setItem(`completed-${difficulty}`, parseInt(completions) + 1);
+            updateStats();
+            alert("🎉 Congratulations! Puzzle completed correctly.");
+        }
+    else{
+            alert("Some tiles are incorrect or not filled. Please check your solution.");
+    }    
+    }
+
 function showSolution() {
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             const tile = document.getElementById(`${r}-${c}`);
             tile.innerText = solution[r][c];
-            tile.style.color = 'lightblue';
+            tile.style.color = 'rgba(45, 50, 122, 0.83)';
         }
     }
     clearInterval(timerInterval);
@@ -275,8 +306,20 @@ function winGame() {
     setLS(completedKey, prevCompleted + 1);
 
     updateStatsDisplay();
-    alert(`Congratulations! You solved the puzzle in ${formatTime(elapsedSec)}.`);
+    alert(`🥳 Congratulations! You solved the puzzle in ${formatTime(elapsedSec)}.`);
 }
+
+function resetStats() {
+    const keys = Object.keys(localStorage);
+    for (const key of keys) {
+        if (key.startsWith('fastest_') || key.startsWith('completed_')) {
+            localStorage.removeItem(key);
+        }
+    }
+    updateStatsDisplay();
+    alert("All statistics will be reset.");
+}
+
 
 /***************** START *******************/
 window.addEventListener('load', () => {
