@@ -240,14 +240,14 @@ html:has(#dark-toggle:checked) .number-selected {
     color: black;
     border-radius: 5px;
     padding: 0.5rem;  
-    font-size: 22px;
+    font-size: 20px;
 
 }
 #difficulty-select{
     background-color: #dbf2ff;
     border: none;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
 }
 .start{
     background-color: #115bd9;
@@ -268,7 +268,7 @@ html:has(#dark-toggle:checked) .number-selected {
     color: rgb(15, 17, 17);
     border-radius: 5px;
     padding: 0.5rem 1rem;
-    font-size: 22px;
+    font-size: 20px;
     cursor: pointer;
     border: none;
 }
@@ -339,8 +339,7 @@ html:has(#dark-toggle:checked) .number-selected {
 /* ----responsive---- */
 @media(max-width: 768px) {
     header{
-        width: 100%;
-        display: flex;
+        width: 100%; 
         
     }
     .left{
@@ -378,12 +377,22 @@ html:has(#dark-toggle:checked) .number-selected {
         justify-content: center;
     }
     .number {
-        width: 34px; 
-        height: 34px;
+        width: 32px; 
+        height: 32px;
         font-size: 16px;}
-     .stats, #controls, .controls {
+    .stats {
         width: 100%;
+        font-size: 12px;
     }
+    #controls, .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    width: 100%;
+    gap: 1rem;
+    
+}
     .guide{
         display:flex;
         flex-direction: column;
@@ -393,6 +402,8 @@ html:has(#dark-toggle:checked) .number-selected {
     .box,.container{
         width: 100%;
         padding: 1rem;
+        align-items: center;
+        justify-content: center;
     }
     .footer {
         padding: 1rem;
