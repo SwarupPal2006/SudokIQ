@@ -268,10 +268,6 @@ function checkSolution() {
     
 
      if (correct) {
-            let difficulty = document.getElementById("difficulty").value;
-            let completions = localStorage.getItem(`completed-${difficulty}`) || 0;
-            localStorage.setItem(`completed-${difficulty}`, parseInt(completions) + 1);
-            updateStats();
             alert("🎉 Congratulations! Puzzle completed correctly.");
         }
     else{
