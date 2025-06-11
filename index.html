@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
     <title>SudokIQ</title>
     <link rel="stylesheet" href="sudoku.css">
     <link rel="icon" type="image/png" href="https://static-00.iconduck.com/assets.00/sudoku-icon-512x512-qnhiasa3.png">
@@ -34,10 +35,10 @@
     <main id="sudoku-board">
      <div class="container">
         <div id="stats" class="stats">
-        Difficulty: <span id="difficulty-label">Easy</span> |
-        Errors: <span id="errors">0 </span> |
-        Time: <span id="timer">00:00 </span> |
-        Fastest: <span id="fastest">--:-- </span> |
+          Difficulty: <span id="difficulty-label">Easy</span> |
+          Errors: <span id="errors">0 </span> |
+          Time: <span id="timer">00:00 </span> |
+          Fastest: <span id="fastest">--:-- </span> |
           Solved: <span id="completed">0</span>
         </div>
     
@@ -71,15 +72,14 @@
     <section id="play" class="guide">
      <div class="guide-header">
           <h2>How to play Sudoku</h2>
-          <p>Sudoku is a logic-based number placement puzzle. The objective is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3×3 subgrids that compose the grid contain all of the digits from 1 to 9.</p>
           <p>The goal of Sudoku is to fill in a 9×9 grid with digits so that each column, row, and 3×3 section contain the numbers between 1 to 9. At the beginning of the game, the 9×9 grid will have some of the squares filled in. Your job is to use logic to fill in the missing digits and complete the grid. Don’t forget, a move is incorrect if:
           </p>
           <div class="box">
                <ul>
-                    <li>Any row contains more than one of the same number from 1 to 9</li>
-                    <li>Any column contains more than one of the same number from 1 to 9</li>
-                    <li>Any 3×3 grid contains more than one of the same number from 1 to 9</li>
-                    <li>In SudokIQ, You have to select a number which you want to fill in the gap. </li>
+                    <li>Any row can not contains more than one of the same number from 1 to 9</li>
+                    <li>Any column can not contains more than one of the same number from 1 to 9</li>
+                    <li>Any 3×3 grid can not contains more than one of the same number from 1 to 9</li>
+                    <li>In SudokIQ, You have to select a number which you want to fill in the gap to solve the puzzle. </li>
                </ul>
           </div>
      </div>
