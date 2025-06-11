@@ -67,7 +67,7 @@ html:has(#dark-toggle:checked) .stats {
 html:has(#dark-toggle:checked) .tile,
 html:has(#dark-toggle:checked) .number {
   color: #5f0d0d;
-  border: #020112 1.5px solid;
+  border: #020112 1px solid;
 }
 html:has(#dark-toggle:checked) .number-selected {
   background-color: #ebf3ee;
@@ -340,7 +340,6 @@ html:has(#dark-toggle:checked) .number-selected {
 @media(max-width: 768px) {
     header{
         width: 100%; 
-        
     }
     .left{
         padding-left: 2rem;
@@ -353,10 +352,10 @@ html:has(#dark-toggle:checked) .number-selected {
         width: 100%;
     }
     .nav-links{
-        gap: 3rem;
+        gap: 2rem;
     }
     #sudoku-board {
-        padding: 2rem 2rem 0 2rem;
+        padding: 1rem;
         width: 100%;
         display: flex;
     }
@@ -381,8 +380,9 @@ html:has(#dark-toggle:checked) .number-selected {
         height: 32px;
         font-size: 16px;}
     .stats {
-        width: 100%;
-        font-size: 12px;
+        width: 90%;
+        font-size: 13px;
+        font-style: normal;
     }
     #controls, .controls {
     display: flex;
@@ -401,7 +401,7 @@ html:has(#dark-toggle:checked) .number-selected {
       }
     .box,.container{
         width: 100%;
-        padding: 1rem;
+       
         align-items: center;
         justify-content: center;
     }
