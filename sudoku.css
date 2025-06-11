@@ -13,6 +13,7 @@ header{
     display: flex;
     flex-direction: row;
     height: 600px;
+    
 }
 /* nvbar */
 .nav{
@@ -73,6 +74,12 @@ html:has(#dark-toggle:checked) .number {
 html:has(#dark-toggle:checked) .number-selected {
   background-color: #ebf3ee;
   border: 3px solid #9bab07;
+}
+html:has(#dark-toggle:checked) .horizontal-line {
+    border-bottom: 3px solid rgb(29, 36, 239);
+}
+html:has(#dark-toggle:checked) .vertical-line {
+    border-right: 3px solid rgb(29, 36, 239);
 }
 
 .left{
@@ -145,10 +152,12 @@ html:has(#dark-toggle:checked) .number-selected {
     background-color: #67e0c667;
     box-shadow: #1c5be2 0px 0px 10px;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
 }
 .tile {
-    width: 48px; 
-    height: 48px;
+    width: 47px; 
+    height: 47px;
     border: 1px solid rgb(151, 148, 148);
 
     /* Text */
@@ -160,7 +169,7 @@ html:has(#dark-toggle:checked) .number-selected {
 }
 
 #digits {
-    width: 450px;
+    width: 455px;
     height: 50px;
     margin: 0 auto;
     display: flex;
@@ -186,7 +195,7 @@ html:has(#dark-toggle:checked) .number-selected {
 
 .number-selected {
     background-color: rgba(25, 201, 177, 0.747);
-    border: 3px solid rgb(48, 84, 229);
+    border: 2px solid rgb(48, 84, 229);
 }
 
 .tile-start {
@@ -194,11 +203,11 @@ html:has(#dark-toggle:checked) .number-selected {
 }
 
 .horizontal-line {
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
 }
 
 .vertical-line {
-    border-right: 2px solid black;
+    border-right: 3px solid black;
 }
  
 .correct { background-color: lightgreen !important; }
@@ -219,7 +228,7 @@ html:has(#dark-toggle:checked) .number-selected {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem;
+    margin: 0.3rem;
     width: 450px;
     gap: 1rem;
     
@@ -385,7 +394,7 @@ html:has(#dark-toggle:checked) .number-selected {
         font-size: 16px;}
     .stats {
         width: 90%;
-        font-size: 11px;
+        font-size: 12px;
     }
     #controls, .controls {
     display: flex;
