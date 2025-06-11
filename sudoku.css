@@ -378,8 +378,8 @@ html:has(#dark-toggle:checked) .vertical-line {
         padding: 0.3rem;   
     }
     .tile {
-        width: 35px; 
-        height: 35px;
+        width: 36px; 
+        height: 36px;
         font-size: 16px;
     }
     #digits {
