@@ -234,8 +234,8 @@ html:has(#dark-toggle:checked) .vertical-line {
     
 }
  .solve, .check, .all {
-    width: 201px;
-    height: 30px;
+    width: 200px;
+    height: 33px;
     border-radius: 5px;
     border: none;
     font-size: 17px;
@@ -372,14 +372,14 @@ html:has(#dark-toggle:checked) .vertical-line {
         width: 100%;
         display: flex;
     }
-   #board {
-        width: 340px;
-        height:340px;
+    #board {
+        width: 345px;
+        height:345px;
         padding: 0.3rem;   
     }
     .tile {
-        width: 37px; 
-        height: 37px;
+        width: 34px; 
+        height: 34px;
         font-size: 16px;
     }
     #digits {
@@ -416,7 +416,7 @@ html:has(#dark-toggle:checked) .vertical-line {
         align-items: center;
         justify-content: center;
     }
-    .check{
+    .check, .mode{
         font-size: 15px;
     }
     .footer {
