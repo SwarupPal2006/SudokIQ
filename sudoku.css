@@ -372,9 +372,9 @@ html:has(#dark-toggle:checked) .vertical-line {
         width: 100%;
         display: flex;
     }
-    #board {
-        width: 360px;
-        height:360px;
+   #board {
+        width: 340px;
+        height:340px;
         padding: 0.3rem;   
     }
     .tile {
